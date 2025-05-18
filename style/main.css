@@ -1,72 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #000;
   color: #fff;
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
 }
 
 header {
   background-color: #1a1a1a;
-  padding: 10px 0;
+  padding: 10px;
   text-align: center;
   flex-shrink: 0;
-  height: 50px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 nav a, footer a {
-  margin: 0 15px;
   color: #fff;
   text-decoration: none;
+  font-size: 16px;
 }
 
 main {
   flex-grow: 1;
-  min-height: calc(100vh - 50px - 40px);
-  display: flex;
-  justify-content: center;
-  align-items: start; 
   padding: 20px;
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
-
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-footer {
-  background-color: #1a1a1a;
-  padding: 10px 0;
-  height: 40px;
-  text-align: center;
-  position: fixed;
+form {
   width: 100%;
-  bottom: 0;
-  left: 0;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-form input, form textarea {
+form input,
+form textarea {
   width: 100%;
-  max-width: 400px;
-  padding: 8px;
-  margin: 5px 0;
+  padding: 10px;
+  margin: 10px 0;
   border: none;
   border-radius: 4px;
   background-color: #222;
   color: #fff;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 16px;
 }
 
 form input[type="submit"] {
   background-color: #333;
-  color: white;
   cursor: pointer;
-  max-width: 200px;
-  margin: 15px auto 0;
-  display: block;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #444;
 }
 
 .content-left {
@@ -78,16 +80,47 @@ form input[type="submit"] {
   color: #e1ece8;
   text-decoration: none;
   font-weight: bold;
-  margin: 0 10px;
-  padding: 6px 12px;
+  margin: 10px 0;
+  padding: 8px 16px;
   border: 1px solid #e1ece8;
   border-radius: 6px;
   transition: all 0.3s ease;
   display: inline-block;
+  text-align: center;
 }
 
 .link-externo:hover {
   background-color: #e1ece8;
   color: #000;
   transform: scale(1.05);
+}
+
+footer {
+  background-color: #1a1a1a;
+  padding: 10px;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a, footer a {
+    font-size: 14px;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .link-externo {
+    width: 100%;
+  }
 }
